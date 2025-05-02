@@ -7,7 +7,10 @@ function useUpdateSetting() {
     const queryClient = useQueryClient();
 
     const { mutate: updateSetting, isLoading: isUpdating } = useMutation({
-        mutationFn: updateSettingApi,
+        // mutationFn: updateSettingApi,
+        mutationFn: () => {
+            console.log("updateSettingApi");
+        },
 
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["settings"] });

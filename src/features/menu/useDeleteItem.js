@@ -8,7 +8,10 @@ function useDeleteItem() {
 
     const { isPending: isDeleting, mutate: deleteItem } = useMutation({
 
-        mutationFn: deleteItemApi,
+        // mutationFn: deleteItemApi,
+        mutationFn: () => {
+            console.log('ds');
+        },
 
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["menu"] });

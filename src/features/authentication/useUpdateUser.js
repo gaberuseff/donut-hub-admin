@@ -7,7 +7,10 @@ function useUpdateUser() {
     const queryClient = useQueryClient();
 
     const { mutate: updateUser, isPending: isUpdating } = useMutation({
-        mutationFn: updatedUserApi,
+        // mutationFn: updatedUserApi,
+        mutationFn: () => {
+            console.log("updateUserApi called");
+        },
 
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["user"] });

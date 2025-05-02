@@ -7,7 +7,10 @@ function useUpdateItem() {
     const queryClient = useQueryClient();
 
     const { mutate: UpdateItem, isPending: isUpdating } = useMutation({
-        mutationFn: ({ newItem, id }) => createEditItem(newItem, id),
+        // mutationFn: ({ newItem, id }) => createEditItem(newItem, id),
+        mutationFn: () => {
+            console.log('us');
+        },
 
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["menu"] });

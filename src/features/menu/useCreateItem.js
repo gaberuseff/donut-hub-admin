@@ -7,7 +7,11 @@ function useCreateItem() {
     const queryClient = useQueryClient();
 
     const { mutate: CreateItem, isPending: isCreating } = useMutation({
-        mutationFn: (newItem) => createEditItem(newItem),
+        // mutationFn: (newItem) => createEditItem(newItem),
+        // add any function for demo app
+        mutationFn: () => {
+            console.log("cs");
+        },
 
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["menu"] });
