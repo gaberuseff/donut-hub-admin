@@ -16,6 +16,7 @@ import AppLayput from "./ui/AppLayput";
 import Order from "./features/orders/Order";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import {DarkModeProvider} from "./context/DarkModeContext";
+import {Analytics} from "@vercel/analytics/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +34,7 @@ function App() {
           initialIsOpen={false}
           buttonPosition="bottom-left"
         />
-
+        <Analytics />
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
